@@ -170,7 +170,7 @@ checkoutBtn.addEventListener("click",function(){
     }).join("")
         
     const message=encodeURIComponent(cartItems)
-    const phone ="21970199028"
+    const phone ="+5521970199028"
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
     cart=[];
