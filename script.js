@@ -144,11 +144,11 @@ addressInput.addEventListener("input", function(event){
 //finalizar pedido
 checkoutBtn.addEventListener("click",function(){
  const isOpen = checkRestaurantOpen();
-        if(!isOpen){
+      if(!isOpen){
 
-            alert ("restaurante fechado no momento!")
-            return;
-        }
+           alert ("restaurante fechado no momento!")
+          return;
+       }
     
 
         if(cart.length === 0) return;
@@ -163,11 +163,14 @@ checkoutBtn.addEventListener("click",function(){
  //Enviar pedido para o api whats
   const cartItems =cart.map((item) => {
         return(
-            `${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} | `  
+            `\n *Pedido Nome:* \n ${item.name} \n *Quantidade:* ${item.quantity}\n *Preço:* R$${item.price}\n `  
         )
-    
-        
+       
+
     }).join("")
+
+    
+
         
     const message=encodeURIComponent(cartItems)
     const phone ="+5521970199028"
@@ -187,7 +190,7 @@ checkoutBtn.addEventListener("click",function(){
     function checkRestaurantOpen(){
         const data=new Date();
         const hora= data.getHours();
-    return hora >= 12 && hora < 22;//true restaurante está aberto
+    return hora >= 8 && hora < 23//true restaurante está aberto
     }
 
     const spanItem = document.getElementById ("date-span")
