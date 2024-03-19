@@ -173,7 +173,7 @@ checkoutBtn.addEventListener("click",function(){
 
         
     const message=encodeURIComponent(cartItems)
-    const phone ="+5521970199028"
+    const phone ="+5521982465701"
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
     cart=[];
@@ -187,11 +187,11 @@ checkoutBtn.addEventListener("click",function(){
 
 
     //verifica a hora e manipular o card horario
-    function checkRestaurantOpen(){
-        const data=new Date();
-        const hora= data.getHours();
-    return hora >= 8 && hora < 23//true restaurante está aberto
-    }
+    //function checkRestaurantOpen(){
+    //    const data=new Date();
+    //    const hora= data.getHours();
+    //return hora >= 8 && hora < 23//true restaurante está aberto
+    //}
 
     const spanItem = document.getElementById ("date-span")
     const isOpen = checkRestaurantOpen();
