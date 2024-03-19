@@ -162,6 +162,7 @@ checkoutBtn.addEventListener("click",function(){
         
  //Enviar pedido para o api whats
   const cartItems =cart.map((item) => {
+            
         return(
             `\n *Pedido Nome:* \n ${item.name} \n *Quantidade:* ${item.quantity}\n *Preço:* R$${item.price}\n `  
         )
@@ -187,11 +188,11 @@ checkoutBtn.addEventListener("click",function(){
 
 
     //verifica a hora e manipular o card horario
-    //function checkRestaurantOpen(){
-    //    const data=new Date();
-    //    const hora= data.getHours();
-    //return hora >= 8 && hora < 23//true restaurante está aberto
-    //}
+    function checkRestaurantOpen(){
+        const data=new Date();
+        const hora= data.getHours();
+    return hora >= 8 && hora < 23//true restaurante está aberto
+    }
 
     const spanItem = document.getElementById ("date-span")
     const isOpen = checkRestaurantOpen();
