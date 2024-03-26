@@ -891,6 +891,10 @@ video {
   width: 7rem;
 }
 
+.w-32 {
+  width: 8rem;
+}
+
 .w-\[this-is\\\\\] {
   width: this-is\\;
 }
@@ -1941,6 +1945,11 @@ video {
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
 }
 
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
 .bg-home {
   background-image: url('/assets/bg.png');
 }
@@ -2706,11 +2715,6 @@ body{
 
   .md\:gap-10 {
     gap: 2.5rem;
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 
   .md\:text-4xl {

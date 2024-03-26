@@ -9,6 +9,11 @@ const castCounter=document.getElementById("cart-count")
 const addressInput=document.getElementById("address")
 const addressWarn=document.getElementById("address-warn")
 
+const addCartBtn = document.querySelector(".add-to-cart-btn")
+
+console.log('quase la em ✔')
+// closeModalBtn.addEventListener("click", () => {})
+
 let cart=[];
 
 //abrir o modal do carrinho
@@ -29,7 +34,7 @@ closeModalBtn.addEventListener("click",function(){
     cartModal.style.display="none"
 })
 
-
+// Adicionar item ao carrinho
 menu.addEventListener("click", function(event){
     let parentButton = event.target.closest(".add-to-cart-btn")
     
@@ -46,13 +51,14 @@ function addToCart(name, price){
     const existingItem = cart.find (item=> item.name===name)
        
     if(existingItem){
+            //Se o item ja existe, adiciona mais 1
         existingItem.quantity+=1
       
     }else{
         cart.push({
             name,
             price,
-            quantity:1
+            quantity:1,
         
            })
     }
@@ -77,13 +83,13 @@ function updateCartModal(){
             <div>
                 <p class="font-medium">${item.name}</p>
                 <p>Qtd: ${item.quantity}</p>
-                <p class="font-medium mt=2">R$ ${item.price}</p>
+                <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
             </div>
-                <div>
+               
                     <button class="remove-from-cart-btn" data-name="${item.name}">
                         Remover
                     </button>
-                </div>
+                
 
         </div>
         `
@@ -97,9 +103,25 @@ cartItensContainer.appendChild(cartItemElement)
 cartTotal.textContent = total.toLocaleString("pt-BR", {
     style:"currency",
     currency:"BRL"
-})
-        castCounter.innerHTML=cart.length;
+});
+
+       // castCounter.innerHTML=cart.length;
+         // Para deixar o numero de (veja carrinho) com a quantidade de itens que tem dentro 
+
 }
+
+// O tanto de vezes que clicou para add item ao carrinho em veja meu carrinho
+let car = 0;
+
+menu.addEventListener("click", (event) => {
+    let vercart = event.target.closest(".add-to-cart-btn")
+    if (vercart) {
+        cartCounter.innerHTML = (car += 1)
+    }
+})
+
+
+
 //função par remover itens do carrinho
 cartItensContainer.addEventListener("click", function (event){
     if(event.target.classList.contains("remove-from-cart-btn")){
@@ -131,6 +153,7 @@ function removeItemCart(name){
      }
 }
 
+//Pegar endereço de entrega dentro do input
 addressInput.addEventListener("input", function(event){
    let inputValue = event.target.value;
     if(inputValue !== ""){
