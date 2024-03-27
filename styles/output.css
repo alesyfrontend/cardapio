@@ -772,6 +772,10 @@ video {
   margin-top: 2.25rem;
 }
 
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
 .box-border {
   box-sizing: border-box;
 }
@@ -1943,11 +1947,6 @@ video {
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
-}
-
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 .bg-home {

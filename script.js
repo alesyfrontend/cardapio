@@ -48,28 +48,29 @@ menu.addEventListener("click", function(event){
     
 //função para adicionar no carrinho
 function addToCart(name, price){
-    const existingItem = cart.find (item=> item.name===name)
+    const existingItem = cart.find(item=> item.name=== name)
        
     if(existingItem){
             //Se o item ja existe, adiciona mais 1
-        existingItem.quantity+=1
+        existingItem.quantity+= 1;
       
-    }else{
+    } else {
         cart.push({
             name,
             price,
-            quantity:1,
+            quantity: 1,
         
            })
     }
     
     updateCartModal() 
+    totalWhats()
 }
 
 //Atualiza o carrinho
 function updateCartModal(){
     cartItensContainer.innerHTML="";
-    let total=0;
+    let total= 0;
 
 
     cart.forEach(item=> {
@@ -79,16 +80,16 @@ function updateCartModal(){
 
 
         cartItemElement.innerHTML=`   
-        <div class="flex itens-center justify-between">
+        <div class="flex items-center justify-between">
             <div>
                 <p class="font-medium">${item.name}</p>
                 <p>Qtd: ${item.quantity}</p>
                 <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
             </div>
                
-                    <button class="remove-from-cart-btn" data-name="${item.name}">
-                        Remover
-                    </button>
+            <button class="mr-1 remove-from-cart-btn hover:scale-110 duration-300" data-name="${item.name}">
+            Remover <i class="fa fa-trash"></i>
+            </button>
                 
 
         </div>
@@ -149,6 +150,7 @@ function removeItemCart(name){
 
             cart.splice(index, 1);
             updateCartModal();
+            totalWhats()
 
      }
 }
@@ -164,12 +166,26 @@ addressInput.addEventListener("input", function(event){
     }
    
 })
-//finalizar pedido
+// Ver se tem algo dentro do input e finalizar pedido
 checkoutBtn.addEventListener("click",function(){
  const isOpen = checkRestaurantOpen();
       if(!isOpen){
 
-           alert ("restaurante fechado no momento!")
+          // alert ("restaurante fechado no momento!")
+           // Alerta top
+        Toastify({
+            text: "Putz, o restaurante está fechado!",
+            duration: 3000,
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "right", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, rgb(153 27 27), rgb(239 68 68))",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+
           return;
        }
     
@@ -201,6 +217,7 @@ checkoutBtn.addEventListener("click",function(){
 
     window.open(`https://wa.me/${phone}?text=${message} Endereço:${addressInput.value}`, "_blank")
     cart=[];
+    cartCounter.innerHTML = (car -= car);
     updateCartModal();
    
 })
