@@ -135,6 +135,7 @@ cartItensContainer.addEventListener("click", function (event){
 })
 
 
+
 function removeItemCart(name){
     const index = cart.findIndex(item => item.name === name);
 
@@ -245,12 +246,6 @@ checkoutBtn.addEventListener("click",function(){
         spanItem.classList.add("bg-red-500")
 
     }
-
-
-
-
-
-
 
 
 
